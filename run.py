@@ -1,7 +1,7 @@
 import os
 import random
 import subprocess
-
+import textwrap
 
 HOROSCOPES = {
     'aries': [" Aries, you'll experience a boost of energy and motivation. Embrace this dynamic drive and use it to fuel your ambitions. Trust your instincts and take bold action towards your goals. Your natural leadership abilities will shine, propelling you towards success. Approach the day with confidence and determination.", "Exciting opportunities await, Aries! Unexpected possibilities will present themselves. Embrace change and step outside your comfort zone. Trust your intuition and take calculated risks. Your fearlessness and determination will help you overcome any challenges that arise. Stay focused on your objectives and let your adventurous spirit guide you to new horizons."],
@@ -103,13 +103,15 @@ if __name__ == "__main__":
 
     if response.lower() == 'yes':
         clear_screen()
-        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow):\n")
+        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow): ")
         print()
         clear_screen()
 
         if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
             prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
-            print(f"Your horoscope prediction for {horoscope_day} is: {prediction}")
+            wrapped_prediction = textwrap.fill(prediction, width=70)  # Adjust the width as needed
+            print(f"Your horoscope prediction for {horoscope_day} is:")
+            print(wrapped_prediction)
         else:
             print("Invalid input. Please try again.")
     else:
