@@ -60,7 +60,7 @@ def get_prediction(day_of_year, horoscope_day):
 
 
 def get_birthday():
-    month_input = input("Please enter the month you were born (name or number): ")
+    month_input = input("Please enter the month you were born (name or number):\n")
     month = None
 
     if month_input.isdigit():
@@ -80,7 +80,7 @@ def get_birthday():
         print("Invalid month entered. Please try again.")
         return get_birthday()
     clear_screen()
-    day = int(input("Now enter the day: "))
+    day = int(input("Now enter the day:\n"))
     return month, day
 
 
@@ -99,11 +99,11 @@ if __name__ == "__main__":
     clear_screen()
 
     print(f"Your star sign is: {star_sign}")
-    response = input("Do you want to know your horoscope? (yes/no): ")
+    response = input("Do you want to know your horoscope? (yes/no):\n")
 
     if response.lower() == 'yes':
         clear_screen()
-        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow): ")
+        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow):\n")
         print()
         clear_screen()
 
