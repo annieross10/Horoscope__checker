@@ -65,9 +65,24 @@ def get_birthday():
             'september', 'october', 'november', 'december'
         ]
         month_input_lower = month_input.lower()
-    
+        if month_input_lower in month_names:
+            month = month_names.index(month_input_lower) + 1
+    if month is None or month < 1 or month > 12:
+        print("Invalid month entered. Please try again.")
+        return get_birthday()
+    day = int(input("Now enter the day: "))
+    return month, day
 
 #Calculate star sign
+def convert_to_day_of_year(month, day):
+    # Convert month and day to the day of the year
+    days_in_month = DAYS_OF_MONTHS[month]
+    return sum(DAYS_OF_MONTHS[i] for i in range(1, month)) + day
+if __name__ == "__main__":
+    birthday = get_birthday()
+    day_of_year = convert_to_day_of_year(birthday[0], birthday[1])
+    star_sign = get_star_sign(birthday[0], birthday[1])
+    
 
 #Ask if user wants to know horoscope
 
