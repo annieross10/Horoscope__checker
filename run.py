@@ -42,18 +42,43 @@ def get_star_sign(month, day):
 
     date = (month, day)
 
-#Predictions for either today or tomorrow
-def get_prediction(day_of_year, horoscope_day)
+    for sign, (start_month, start_day), (end_month, end_day) in star_signs:
+        if (start_month, start_day) <= date <= (end_month, end_day):
+            return sign
+
+    return "Invalid star sign"
+
+
     
 
 #Get birthdate information
-def get_birthday()
+def get_birthday():
+    month_input = input("Please enter the month you were born (name or number): ")
+    month = None
+
+    if month_input.isdigit():
+        month = int(month_input)
+    else:
+        month_names = [
+            'january', 'february', 'march', 'april',
+            'may', 'june', 'july', 'august',
+            'september', 'october', 'november', 'december'
+        ]
+        month_input_lower = month_input.lower()
     
-    
+
 #Calculate star sign
 
 #Ask if user wants to know horoscope
 
 #Horoscope prediction for either today or tomorrow
+def get_prediction(day_of_year, horoscope_day):
+    if day_of_year in HOROSCOPES:
+        horoscopes = HOROSCOPES[day_of_year]
+        if horoscope_day == 'today':
+            return horoscopes[0]
+        elif horoscope_day == 'tomorrow':
+            return horoscopes[1]
+    return "No prediction available for the given day."
 
 #Horoscope prediciton
