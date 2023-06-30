@@ -1,7 +1,8 @@
+import os
 import random
+import subprocess
 
 
-#Horoscopes
 HOROSCOPES = {
     'Aries': [" Aries, you'll experience a boost of energy and motivation. Embrace this dynamic drive and use it to fuel your ambitions. Trust your instincts and take bold action towards your goals. Your natural leadership abilities will shine, propelling you towards success. Approach the day with confidence and determination.", "Exciting opportunities await, Aries! Unexpected possibilities will present themselves. Embrace change and step outside your comfort zone. Trust your intuition and take calculated risks. Your fearlessness and determination will help you overcome any challenges that arise. Stay focused on your objectives and let your adventurous spirit guide you to new horizons."],
     'Taurus': ["Taurus, you'll feel a sense of stability and determination. Embrace this grounded energy and focus on your goals. Trust your practical instincts as you make decisions. Your patience and persistence will pay off, leading you to success. Stay rooted in your values and make steady progress towards your aspirations.", "Exciting opportunities await, Taurus! Unexpected possibilities will come your way. Embrace change with confidence and open-mindedness. Trust your instincts and take calculated steps towards new ventures. Your reliability and dedication will help you navigate any challenges that arise. Stay true to your goals and let your steady nature guide you to fruitful outcomes."],
@@ -16,13 +17,12 @@ HOROSCOPES = {
     'Pisces': ["Pisces, you'll experience a surge of positive energy and inspiration. Embrace this creative flow and trust your intuition. Take courageous steps towards your dreams and watch them manifest into reality. Your compassionate nature will guide you towards meaningful connections and opportunities for growth.", " Get ready for exciting possibilities, Pisces! Unexpected opportunities will come knocking on your door. Embrace change and go with the flow. Trust your instincts and follow your heart's desires. Your adaptable and empathetic nature will help you navigate any challenges that arise. Stay true to your dreams and embrace the journey ahead."]
 }
 
-#Days of the month
 DAYS_OF_MONTHS = {
     1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
     7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
 }
 
-#Star signs
+
 def get_star_sign(month, day):
     star_signs = [
         ('Capricorn', (1, 1), (1, 19)),
@@ -49,9 +49,16 @@ def get_star_sign(month, day):
     return "Invalid star sign"
 
 
-    
+def get_prediction(day_of_year, horoscope_day):
+    if day_of_year in HOROSCOPES:
+        horoscopes = HOROSCOPES[day_of_year]
+        if horoscope_day == 'today':
+            return horoscopes[0]
+        elif horoscope_day == 'tomorrow':
+            return horoscopes[1]
+    return "No prediction available for the given day."
 
-#Get birthdate information
+
 def get_birthday():
     month_input = input("Please enter the month you were born (name or number): ")
     month = None
@@ -65,35 +72,43 @@ def get_birthday():
             'september', 'october', 'november', 'december'
         ]
         month_input_lower = month_input.lower()
+
         if month_input_lower in month_names:
             month = month_names.index(month_input_lower) + 1
+
     if month is None or month < 1 or month > 12:
         print("Invalid month entered. Please try again.")
         return get_birthday()
     day = int(input("Now enter the day: "))
     return month, day
 
-#Calculate star sign
+
 def convert_to_day_of_year(month, day):
     # Convert month and day to the day of the year
     days_in_month = DAYS_OF_MONTHS[month]
     return sum(DAYS_OF_MONTHS[i] for i in range(1, month)) + day
+
+
 if __name__ == "__main__":
     birthday = get_birthday()
     day_of_year = convert_to_day_of_year(birthday[0], birthday[1])
     star_sign = get_star_sign(birthday[0], birthday[1])
+
+
+    print(f"Your star sign is: {star_sign}")
+    response = input("Do you want to know your horoscope? (yes/no): ")
+
+    if response.lower() == 'yes':
     
+        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow): ")
+        print()
 
-#Ask if user wants to know horoscope
+        if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
+            prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
+            print(f"Your horoscope prediction for {horoscope_day} is: {prediction}")
+        else:
+            print("Invalid input. Please try again.")
+    else:
+        print("Okay, maybe next time!")
 
-#Horoscope prediction for either today or tomorrow
-def get_prediction(day_of_year, horoscope_day):
-    if day_of_year in HOROSCOPES:
-        horoscopes = HOROSCOPES[day_of_year]
-        if horoscope_day == 'today':
-            return horoscopes[0]
-        elif horoscope_day == 'tomorrow':
-            return horoscopes[1]
-    return "No prediction available for the given day."
 
-#Horoscope prediciton
