@@ -3,19 +3,111 @@ import random
 import subprocess
 import textwrap
 
+
 HOROSCOPES = {
-    'aries': [" Aries, you'll experience a boost of energy and motivation. Embrace this dynamic drive and use it to fuel your ambitions. Trust your instincts and take bold action towards your goals. Your natural leadership abilities will shine, propelling you towards success. Approach the day with confidence and determination.", "Exciting opportunities await, Aries! Unexpected possibilities will present themselves. Embrace change and step outside your comfort zone. Trust your intuition and take calculated risks. Your fearlessness and determination will help you overcome any challenges that arise. Stay focused on your objectives and let your adventurous spirit guide you to new horizons."],
-    'taurus': ["Taurus, you'll feel a sense of stability and determination. Embrace this grounded energy and focus on your goals. Trust your practical instincts as you make decisions. Your patience and persistence will pay off, leading you to success. Stay rooted in your values and make steady progress towards your aspirations.", "Exciting opportunities await, Taurus! Unexpected possibilities will come your way. Embrace change with confidence and open-mindedness. Trust your instincts and take calculated steps towards new ventures. Your reliability and dedication will help you navigate any challenges that arise. Stay true to your goals and let your steady nature guide you to fruitful outcomes."],
-    'cancer': ["Cancer, you'll experience a sense of emotional harmony and intuition. Embrace this nurturing energy and trust your instincts. Connect with your emotions and those around you on a deeper level. Your compassion and sensitivity will guide you in making supportive decisions. Embrace the day with love and care.", "Exciting opportunities await, Cancer! Unexpected possibilities will come knocking on your door. Embrace change with an open heart and receptive mindset. Trust your intuition and follow your gut feelings. Your nurturing nature will help you navigate any challenges that arise. Stay true to your dreams and let your emotional intelligence guide you to fulfillment."],
-    'gemini': ["Gemini, you'll experience a surge of intellectual energy and communication skills. Embrace this mental clarity and express yourself with confidence. Trust your instincts and engage in meaningful conversations. Your versatility and quick thinking will help you navigate any situation. Embrace the day with curiosity and embrace new ideas.", "Exciting opportunities await, Gemini! Unexpected possibilities will come your way. Embrace change with adaptability and an open mind. Trust your instincts and follow your curiosity. Your versatility and wit will help you navigate any challenges that arise. Stay true to your interests and let your communication skills shine."],
-    'leo': ["Leo, you'll experience a surge of confidence and passion. Embrace this fiery energy and let it fuel your ambitions. Trust your instincts and take bold actions towards your goals. Your natural charisma and leadership abilities will shine brightly. Seize the day with enthusiasm and let your inner lion roar.", "Exciting opportunities await, Leo! Unexpected possibilities will come your way. Embrace change with courage and optimism. Trust your intuition and follow your heart's desires. Your magnetic personality will attract favorable circumstances. Embrace challenges with confidence, and your creativity and charisma will guide you towards success. Stay true to your vision and let your vibrant spirit shine."],
-    'virgo': ["Virgo, you'll experience a sense of practicality and organization. Embrace this grounded energy and focus on the details. Trust your analytical mind as you make decisions. Your diligence and attention to detail will lead to success. Stay methodical in your approach and make progress towards your goals.", "Exciting opportunities await, Virgo! Unexpected possibilities will come your way. Embrace change with a discerning eye and a logical mindset. Trust your instincts and take calculated steps towards new ventures. Your reliability and meticulousness will help you navigate any challenges that arise. Stay true to your goals and let your practical nature guide you to fruitful outcomes."],
-    'libra': ["Libra, you'll experience a sense of balance and harmony. Embrace this peaceful energy and seek equilibrium in your life. Trust your intuition as you make decisions. Your diplomatic nature will help you navigate any conflicts gracefully. Embrace the day with poise and kindness.", " Exciting opportunities await, Libra! Unexpected possibilities will come your way. Embrace change with grace and open-mindedness. Trust your instincts and consider all perspectives. Your charm and ability to find common ground will lead to favorable outcomes. Embrace challenges with balance, and your sense of harmony will guide you towards success. Stay true to your vision and let your diplomatic spirit shine."],
-    'scorpio': ["Scorpio, you'll experience a surge of intensity and intuition. Embrace this powerful energy and trust your gut instincts. Dive deep into your emotions and embrace your inner strength. Your determination and resourcefulness will help you overcome any obstacles. Embrace the day with passion and unwavering focus.", "Exciting opportunities await, Scorpio! Unexpected possibilities will come your way. Embrace change with confidence and a sharp mind. Trust your instincts and follow your instincts. Your resilience and ability to adapt will help you navigate any challenges that arise. Stay true to your desires and let your transformative spirit guide you to success."],
-    'sagittarius': ["Sagittarius, you'll experience a surge of optimism and adventure. Embrace this adventurous energy and let your curiosity lead the way. Trust your intuition and take bold steps towards your aspirations. Your free-spirited nature will attract exciting opportunities. Embrace the day with enthusiasm and embrace the thrill of the unknown.", "Exciting opportunities await, Sagittarius! Unexpected possibilities will come knocking on your door. Embrace change with an open mind and a sense of wonder. Trust your instincts and follow your passions. Your optimism and adaptability will help you navigate any challenges that arise. Stay true to your dreams and let your adventurous spirit guide you to new horizons."],
-    'capricorn': ["Capricorn, brace yourself for an unexpected twist in your professional life. A hidden opportunity is set to resurface, bringing a surge of excitement and potential. Embrace this chance to showcase your skills and let your ambition shine. However, exercise caution and refrain from divulging your plans prematurely. Keep a guarded approach and let your actions speak for themselves. Success awaits if you stay focused and take calculated risks.", "Capricorn, the focus of tomorrow shifts towards finding balance and harmony in your personal relationships. It's time to mend any strained connections and foster a deeper understanding with your loved ones. Extend an olive branch to someone with whom you've had disagreements. Embrace empathy, compromise, and the power of forgiveness. By doing so, you can create a stronger foundation for long-lasting friendships and love. Communication plays a vital role, so express your thoughts and emotions openly and honestly."],
-    'aquarius': ["Aquarius, you'll experience a surge of positivity and creativity. Embrace this energy and let your innovative ideas shine. Trust your intuition as you make important decisions, and don't be afraid to take bold steps towards your goals. Your unique perspective will lead you to exciting opportunities", "Get ready for an adventurous day, Aquarius! Unexpected opportunities will come your way, and it's time to embrace change. Your adaptability and open-mindedness will be your greatest assets. Stay true to your vision, and you'll overcome any challenges that come your way. Be open to new experiences and let your free spirit guide you to success"],
-    'pisces': ["Pisces, you'll experience a surge of positive energy and inspiration. Embrace this creative flow and trust your intuition. Take courageous steps towards your dreams and watch them manifest into reality. Your compassionate nature will guide you towards meaningful connections and opportunities for growth.", " Get ready for exciting possibilities, Pisces! Unexpected opportunities will come knocking on your door. Embrace change and go with the flow. Trust your instincts and follow your heart's desires. Your adaptable and empathetic nature will help you navigate any challenges that arise. Stay true to your dreams and embrace the journey ahead."]
+    'aries': [
+        "Aries, you'll experience a boost of energy and motivation. Embrace this dynamic drive and use it to fuel your ambitions. "
+        "Trust your instincts and take bold action towards your goals. Your natural leadership abilities will shine, "
+        "propelling you towards success. Approach the day with confidence and determination.",
+        "Exciting opportunities await, Aries! Unexpected possibilities will present themselves. Embrace change and step outside "
+        "your comfort zone. Trust your intuition and take calculated risks. Your fearlessness and determination will help you "
+        "overcome any challenges that arise. Stay focused on your objectives and let your adventurous spirit guide you to "
+        "new horizons."
+    ],
+    'taurus': [
+        "Taurus, you'll feel a sense of stability and determination. Embrace this grounded energy and focus on your goals. "
+        "Trust your practical instincts as you make decisions. Your patience and persistence will pay off, leading you to success. "
+        "Stay rooted in your values and make steady progress towards your aspirations.",
+        "Exciting opportunities await, Taurus! Unexpected possibilities will come your way. Embrace change with confidence and "
+        "open-mindedness. Trust your instincts and take calculated steps towards new ventures. Your reliability and dedication "
+        "will help you navigate any challenges that arise. Stay true to your goals and let your steady nature guide you to "
+        "fruitful outcomes."
+    ],
+    'cancer': [
+        "Cancer, you'll experience a sense of emotional harmony and intuition. Embrace this nurturing energy and trust your instincts. "
+        "Connect with your emotions and those around you on a deeper level. Your compassion and sensitivity will guide you in making "
+        "supportive decisions. Embrace the day with love and care.",
+        "Exciting opportunities await, Cancer! Unexpected possibilities will come knocking on your door. Embrace change with an "
+        "open heart and receptive mindset. Trust your intuition and follow your gut feelings. Your nurturing nature will help you "
+        "navigate any challenges that arise. Stay true to your dreams and let your emotional intelligence guide you to fulfillment."
+    ],
+    'gemini': [
+        "Gemini, you'll experience a surge of intellectual energy and communication skills. Embrace this mental clarity and "
+        "express yourself with confidence. Trust your instincts and engage in meaningful conversations. Your versatility and "
+        "quick thinking will help you navigate any situation. Embrace the day with curiosity and embrace new ideas.",
+        "Exciting opportunities await, Gemini! Unexpected possibilities will come your way. Embrace change with adaptability and "
+        "an open mind. Trust your instincts and follow your curiosity. Your versatility and wit will help you navigate any "
+        "challenges that arise. Stay true to your interests and let your communication skills shine."
+    ],
+    'leo': [
+        "Leo, you'll experience a surge of confidence and passion. Embrace this fiery energy and let it fuel your ambitions. "
+        "Trust your instincts and take bold actions towards your goals. Your natural charisma and leadership abilities will shine "
+        "brightly. Seize the day with enthusiasm and let your inner lion roar.",
+        "Exciting opportunities await, Leo! Unexpected possibilities will come your way. Embrace change with courage and optimism. "
+        "Trust your intuition and follow your heart's desires. Your magnetic personality will attract favorable circumstances. "
+        "Embrace challenges with confidence, and your creativity and charisma will guide you towards success. Stay true to your "
+        "passions and let your inner fire light the way."
+    ],
+    'virgo': [
+        "Virgo, you'll feel a sense of practicality and efficiency. Embrace this organized energy and focus on your goals. "
+        "Trust your analytical mind as you make decisions. Your attention to detail and hard work will pay off, leading you to "
+        "success. Stay dedicated and disciplined in your endeavors.",
+        "Exciting opportunities await, Virgo! Unexpected possibilities will present themselves. Embrace change with adaptability "
+        "and precision. Trust your instincts and take calculated steps towards new ventures. Your meticulous nature and "
+        "discerning eye will help you navigate any challenges that arise. Stay true to your goals and let your practicality "
+        "guide you to fruitful outcomes."
+    ],
+    'libra': [
+        "Libra, you'll experience a sense of balance and harmony. Embrace this harmonious energy and seek peace in all areas of your life. "
+        "Trust your intuition as you make decisions. Your diplomatic nature and sense of justice will guide you in resolving conflicts. "
+        "Embrace the day with grace and find equilibrium within yourself.",
+        "Exciting opportunities await, Libra! Unexpected possibilities will present themselves. Embrace change with poise and "
+        "openness. Trust your instincts and seek harmony in all endeavors. Your charm and tact will help you navigate any challenges "
+        "that arise. Stay true to your values and let your balanced nature guide you to rewarding outcomes."
+    ],
+    'scorpio': [
+        "Scorpio, you'll feel a surge of intensity and passion. Embrace this powerful energy and embrace your transformative nature. "
+        "Trust your instincts and follow your desires. Your determination and resourcefulness will help you overcome any obstacles. "
+        "Seize the day with courage and let your inner strength guide you.",
+        "Exciting opportunities await, Scorpio! Unexpected possibilities will come your way. Embrace change with resilience and "
+        "assertiveness. Trust your instincts and follow your passions. Your magnetic aura will attract favorable circumstances. "
+        "Embrace challenges with confidence, and your perseverance and intuition will lead you to success. Let your inner fire "
+        "ignite your path."
+    ],
+    'sagittarius': [
+        "Sagittarius, you'll feel a sense of adventure and optimism. Embrace this free-spirited energy and explore new horizons. "
+        "Trust your intuition as you embark on new journeys. Your enthusiasm and open-mindedness will guide you in embracing "
+        "opportunities. Seize the day with optimism and let your inner explorer thrive.",
+        "Exciting opportunities await, Sagittarius! Unexpected possibilities will present themselves. Embrace change with "
+        "enthusiasm and an adventurous spirit. Trust your instincts and take bold steps towards new experiences. Your optimism "
+        "and curiosity will help you navigate any challenges that arise. Stay true to your dreams and let your inner fire guide "
+        "you to exciting horizons."
+    ],
+    'capricorn': [
+        "Capricorn, you'll experience a sense of determination and ambition. Embrace this driven energy and focus on your goals. "
+        "Trust your instincts as you make important decisions. Your disciplined nature and practical mindset will lead you to success. "
+        "Stay committed to your path and embrace the day with confidence.",
+        "Exciting opportunities await, Capricorn! Unexpected possibilities will come your way. Embrace change with patience and "
+        "strategic thinking. Trust your instincts and take calculated steps towards your goals. Your hard work and dedication "
+        "will help you navigate any challenges that arise. Stay true to your aspirations and let your ambition guide you to "
+        "achievements."
+    ],
+    'aquarius': [
+        "Aquarius, you'll feel a surge of innovative energy and intellectual stimulation. Embrace this creative flow and express "
+        "yourself authentically. Trust your intuition and follow your unique ideas. Your visionary thinking and humanitarian "
+        "nature will guide you in making a positive impact. Embrace the day with inventiveness and let your inner rebel shine.",
+        "Exciting opportunities await, Aquarius! Unexpected possibilities will come your way. Embrace change with adaptability and "
+        "originality. Trust your instincts and take calculated risks. Your progressive mindset and innovative ideas will help you "
+        "navigate any challenges that arise. Stay true to your values and let your intellectual prowess guide you to new frontiers."
+    ],
+    'pisces': [
+        "Pisces, you'll experience a sense of intuition and compassion. Embrace this intuitive energy and trust your inner guidance. "
+        "Connect with your emotions and those around you on a deeper level. Your empathy and imagination will guide you in making "
+        "supportive decisions. Embrace the day with love and kindness.",
+        "Exciting opportunities await, Pisces! Unexpected possibilities will come your way. Embrace change with an open heart and "
+        "receptive mindset. Trust your intuition and follow your dreams. Your artistic nature and spiritual depth will help you "
+        "navigate any challenges that arise. Stay true to your passions and let your intuition lead you to fulfillment."
+    ]
 }
 
 DAYS_OF_MONTHS = {
@@ -117,3 +209,5 @@ if __name__ == "__main__":
             print("Invalid input. Please try again.")
     else:
         print("Okay, maybe next time!")
+
+        
