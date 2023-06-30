@@ -99,17 +99,17 @@ if __name__ == "__main__":
     clear_screen()
 
     print(f"Your star sign is: {star_sign}")
-    response = input("Do you want to know your horoscope? (yes/no):\n")
+    response = input("Do you want to know your horoscope?(yes/no):\n")
 
     if response.lower() == 'yes':
         clear_screen()
-        horoscope_day = input("Do you want to know your horoscope for today or tomorrow? (today/tomorrow): ")
+        horoscope_day = input("Which day would you like to know your horoscope?(today/tomorrow):\n")
         print()
         clear_screen()
 
         if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
             prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
-            wrapped_prediction = textwrap.fill(prediction, width=70)  # Adjust the width as needed
+            wrapped_prediction = textwrap.fill(prediction, width=80) 
             print(f"Your horoscope prediction for {horoscope_day} is:")
             print(wrapped_prediction)
         else:
