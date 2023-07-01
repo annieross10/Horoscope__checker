@@ -208,7 +208,7 @@ if __name__ == "__main__":
             if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
                 prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
                 wrapped_prediction = textwrap.fill(prediction, width=80) 
-                print(f"Your horoscope prediction for {horoscope_day} is:")
+                print(f"Your horoscope prediction for {horoscope_day} is:\n")
                 print(wrapped_prediction)
             else:
                 print("Invalid input. Please try again.")
@@ -216,7 +216,7 @@ if __name__ == "__main__":
             print("Okay, maybe next time!")
 
         #ask user if they want to start again
-        repeat_response = input("Would you like another horoscope read? (yes/no):\n")
+        repeat_response = input("\nWould you like another horoscope read? (yes/no):\n")
 
         if repeat_response.lower() != 'yes':
             break
