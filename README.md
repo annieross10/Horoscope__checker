@@ -1,32 +1,50 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Horoscope Calculator
+Welcome to the Horoscope Calculator! 
+The Horoscope Calculator is a simple Python program that allows users to get their horoscope predictions based on their birthdate and star sign. The program provides daily horoscope readings for each zodiac sign.
+Whether you're seeking guidance, curious about what the stars have in store for you, or just want to explore the mystical realm of astrology, the Horoscope Calculator has you covered.
 
-Welcome,
+## Features
+### Exisiting Features
+- Enter your name
+   - Start by providing your name when prompted.
+   - This allows the Horoscope Calculator to create a personalized connection with you, ensuring that your horoscope readings are not only accurate but also resonate with your individuality.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+- Discover your star sign:
+  - Input your birthdate (month and day), and let the program calculate your precise zodiac sign.
+  - With this information, the Horoscope Calculator can delve into the specific characteristics, traits, and tendencies associated with your sign, uncovering profound insights about your personality and life journey.
+      
+- Flexible Forecast Options
+    - Choose between today's horoscope or get a sneak peek into what tomorrow holds.
+    - This flexibility allows you to plan ahead and make informed decisions based on astrological insights
 
-## Reminders
+- Motivational Horoscope revealed
+    - At the end of the questions, your personalised horoscope is revealed! Do what you wish with the information.
+ 
+- Option to read another star sign at the end.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Testing
+I have manually tested this project by doing the following:
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### Bugs
+#### Solved Bugs
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+### Validator Testing
+- PEP8
+  - No errors were returned form PEP8online.com
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+ 
+### Unfixed Bugs
+No unfixed bugs
 
----
+## Deployment
+After preparing the site for deployment, the next step was to host it on GitHub pages. I followed these steps to deploy:
 
-Happy coding!
+
+
+## Credits
+### Content
