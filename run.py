@@ -213,23 +213,15 @@ def clear_screen():
 
 def get_name():
     name = input("Please enter your name:\n")
+    print(f"\nWelcome, {name}! Get ready to explore your horoscope.")
     return name
 
 
-# predictions for either today or tomorrow
-def get_prediction(day_of_year, horoscope_day):
-    if day_of_year in HOROSCOPES:
-        horoscopes = HOROSCOPES[day_of_year]
-        if horoscope_day == 'today':
-            return horoscopes[0]
-        elif horoscope_day == 'tomorrow':
-            return horoscopes[1]
-    return "No prediction available for the given day."
+clear_screen()
 
 
 # get birthday information
 def get_birthday():
-    clear_screen()
     month_input = input("Please enter the month you were \
 born (name or number):\n")
     month = None
@@ -272,15 +264,24 @@ born (name or number):\n")
 
 
 def convert_to_day_of_year(month, day):
-    days_in_month = DAYS_OF_MONTHS[month]
     return sum(DAYS_OF_MONTHS[i] for i in range(1, month)) + day
+
+
+# predictions for either today or tomorrow
+def get_prediction(day_of_year, horoscope_day):
+    if day_of_year in HOROSCOPES:
+        horoscopes = HOROSCOPES[day_of_year]
+        if horoscope_day == 'today':
+            return horoscopes[0]
+        elif horoscope_day == 'tomorrow':
+            return horoscopes[1]
+    return "No prediction available for the given day."
 
 
 # calculate star sign
 if __name__ == "__main__":
     while True:
         name = get_name()
-        print(f"\nWelcome, {name}!")
 
         while True:
             birthday = get_birthday()
