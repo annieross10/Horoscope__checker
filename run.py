@@ -142,6 +142,13 @@ def get_star_sign(month, day):
 
     return "Invalid star sign"
 
+#clear screen from previous question
+def clear_screen():
+    subprocess.run(["clear" if os.name != "nt" else "cls"], shell=True)
+
+def get_name():
+    name = input("Please enter your name:\n")
+    return name
 
 #predictions for either today or tomorrow
 def get_prediction(day_of_year, horoscope_day):
@@ -155,6 +162,7 @@ def get_prediction(day_of_year, horoscope_day):
 
 #get birthday information
 def get_birthday():
+    clear_screen()
     month_input = input("Please enter the month you were born (name or number):\n")
     month = None
 
@@ -191,49 +199,47 @@ def get_birthday():
 
     return month, day
 
-
 def convert_to_day_of_year(month, day):
     days_in_month = DAYS_OF_MONTHS[month]
     return sum(DAYS_OF_MONTHS[i] for i in range(1, month)) + day
 
-#clear screen from previous question
-def clear_screen():
-    subprocess.run(["clear" if os.name != "nt" else "cls"], shell=True)
-
 #calculate star sign
 if __name__ == "__main__":
     while True:
-        birthday = get_birthday()
-        day_of_year = convert_to_day_of_year(birthday[0], birthday[1])
-        star_sign = get_star_sign(birthday[0], birthday[1])
-        clear_screen()
-        print(f"Your star sign is: {star_sign}")
+        name = get_name()
+        print(f"\nWelcome, {name}!")
 
-        #ask user if they want their horoscope read
-        response = input("Do you want to know your horoscope? (yes/no):\n")
-
-        if response.lower() == 'yes':
+        while True:
+            birthday = get_birthday()
+            day_of_year = convert_to_day_of_year(birthday[0], birthday[1])
+            star_sign = get_star_sign(birthday[0], birthday[1])
             clear_screen()
-            horoscope_day = input("Which day would you like to know your horoscope? (today/tomorrow):\n")
-            print()
-            clear_screen()
+            print(f"Your star sign is: {star_sign}")
 
-            if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
-                prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
-                wrapped_prediction = textwrap.fill(prediction, width=80) 
-                print(f"Your horoscope prediction for {horoscope_day} is:\n")
-                print(wrapped_prediction)
+            # Ask user if they want their horoscope read
+            response = input("Do you want to know your horoscope? (yes/no):\n")
+
+            if response.lower() == 'yes':
+                clear_screen()
+                horoscope_day = input("Which day would you like to know your horoscope? (today/tomorrow):\n")
+                print()
+                clear_screen()
+
+                if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
+                    prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
+                    wrapped_prediction = textwrap.fill(prediction, width=80) 
+                    print(f"{name}... Your horoscope prediction for {horoscope_day} is...\n")
+                    print(wrapped_prediction)
+                else:
+                    print("Invalid input. Please try again.")
             else:
-                print("Invalid input. Please try again.")
-        else:
-            print("Okay, maybe next time!")
+                print("Okay, maybe next time!")
 
-        #ask user if they want to start again
-        repeat_response = input("\nWould you like another horoscope read? (yes/no):\n")
+            # Ask user if they want to start again
+            repeat_response = input("\nWould you like another horoscope read? (yes/no):\n")
 
-        if repeat_response.lower() != 'yes':
-            break
-        clear_screen()
-
-    print("Thank you for using the horoscope service. Goodbye!")
-
+            if repeat_response.lower() != 'yes':
+                break
+            clear_screen()
+            
+        print("Thank you for using the horoscope service. Goodbye!")
