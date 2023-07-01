@@ -174,8 +174,21 @@ def get_birthday():
     if month is None or month < 1 or month > 12:
         print("Invalid month entered. Please try again.")
         return get_birthday()
+    
     clear_screen()
-    day = int(input("Now enter the day:\n"))
+    
+    while True:
+        day_input = input("Now enter the day:\n")
+        if day_input.isdigit():
+            day = int(day_input)
+            break
+        else:
+            try:
+                day = int(day_input[:-2])
+                break
+            except ValueError:
+                print("Invalid day entered. Please try again.")
+
     return month, day
 
 
