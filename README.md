@@ -60,15 +60,16 @@ I encountered a few bugs while working on the horoscope calculator code, but I w
 - PEP8
   - No errors were returned form PEP8online.com
 
-
- 
 ### Unfixed Bugs
 No unfixed bugs
 
 ## Deployment
-After preparing the site for deployment, the next step was to host it on GitHub pages. I followed these steps to deploy:
-
-
+This project was deployed on Heruko, Code Institute's mock terminal.
+- Deployment steps
+     - Cone the respository from Codeinstitute's github page
+     - Create a new Heroku app
+     - Ste the buildbacks to Python and NodeJS in that order
+     - Click on Deploy
 
 ## Credits
 ### Content
