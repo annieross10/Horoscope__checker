@@ -3,6 +3,11 @@ Welcome to the Horoscope Calculator!
 The Horoscope Calculator is a simple Python program that allows users to get their horoscope predictions based on their birthdate and star sign. The program provides daily horoscope readings for each zodiac sign.
 Whether you're seeking guidance, curious about what the stars have in store for you, or just want to explore the mystical realm of astrology, the Horoscope Calculator has you covered.
 
+[The live link for the website can be found here](https://horoscope-calculator-42ae9e82fc7b.herokuapp.com/)
+
+![Horoscope enter name](/assets/images/screenshots/am_i_responsive.png)
+
+
 ## Features
 ### Exisiting Features
 - Enter your name
@@ -16,18 +21,25 @@ Whether you're seeking guidance, curious about what the stars have in store for 
   - With this information, the Horoscope Calculator can delve into the specific characteristics, traits, and tendencies associated with your sign, uncovering profound insights about your personality and life journey.
 
 ![Horoscope input birthday and welcome message](/assets/images/screenshots/welcomemessage.png)
+
+- The calculator will then determine your star sign based on the month and the day that you input and will progress into asking whether you would like to know your horoscope.
+
+![calculating the star sign](/assets/images/screenshots/star_sign.png)
       
 - Flexible Forecast Options
     - Choose between today's horoscope or get a sneak peek into what tomorrow holds.
     - This flexibility allows you to plan ahead and make informed decisions based on astrological insights
 
+![Horoscope ask today or tomorrow](/assets/images/screenshots/todayortomorrow.png)
+
 - Motivational Horoscope revealed
-    - At the end of the questions, your personalised horoscope is revealed! Do what you wish with the information.
+    - At the end of the interactive questionnaire, the horoscope calculator reveals your personalized horoscope, adding an exciting touch to the user experience.
+    - Whether you seek encouragement, guidance, or simply enjoy reading about astrology, the personalized horoscope feature adds an extra dimension of engagement to the horoscope calculator\ .
  
 ![Horoscope](/assets/images/screenshots/horoscopeprediction.png)
  
 - Option to read another star sign at the end.
-- Does not give you the oppertunity to input a false birthday.
+- Does not give you the oppertunity to input a false birthday - this is so you don't get a miscalculated horoscope! 
 
 ![invalid month message](/assets/images/screenshots/invalidresponse.png)
 
@@ -54,10 +66,25 @@ I have manually tested this project by doing the following:
 ### Bugs
 #### Solved Bugs
 I encountered a few bugs while working on the horoscope calculator code, but I was able to fix them.
--One bug was related to validating the user's birth month. Previously, the code only checked if the month input was an integer, but it came up with in invalid response when the user entered the month as a name. To fix this, I added a check for month names in a list and converted them to the corresponding integer value. This ensured that both numeric and name inputs for the month were accepted.
--I addressed the issue of the long line of code by using double quotes ("") to break the line into multiple lines for improved readability. Instead of having a single long line, I split it into smaller segments, each enclosed within double quotes. This allows the code to span across multiple lines while maintaining the string's integrity. By doing so, I made the code more organized and easier to understand.
--I enhanced the user experience of the horoscope calculator by incorporating the clear_screen() function. This function, when called, clears the terminal or console screen, effectively removing the previous questions and outputs from view. By clearing the screen before presenting each new question or result, the calculator provides a cleaner and more focused interface to the user. This way, they can concentrate on the current task without distractions from previous interactions. It contributes to a smoother and more intuitive user experience throughout the horoscope calculation process.
+- One bug was related to validating the user's birth month. Previously, the code only checked if the month input was an integer, but it came up with in invalid response when the user entered the month as a name. To fix this, I added a check for month names in a list and converted them to the corresponding integer value. This ensured that both numeric and name inputs for the month were accepted.
 
+![Int solved bug](/assets/images/screenshots/Solved_bug_int.png)
+
+- I addressed the issue of the long line of code by using double quotes ("") to break the line into multiple lines for improved readability. Instead of having a single long line, I split it into smaller segments, each enclosed within double quotes. This allows the code to span across multiple lines while maintaining the string's integrity. By doing so, I made the code more organized and easier to understand.
+
+![long line code](/assets/images/screenshots/long_line_string.png)
+  
+- I made the horoscope calculator clearer by adding a function called clear_screen(). This function uses a module called subprocess to clear the previous questions from the screen. By importing the subprocess module, I was able to access its features.
+     - Inside the clear_screen() function, I used the subprocess.run() method to run a system command that clears the screen. The specific command I used depends on the operating system. For example, on non-Windows systems, the command is "clear", and on Windows systems, it is "cls".
+     - Whenever I call the clear_screen() function, it executes the system command and clears the screen, making the calculator interface cleaner and easier to read. This way, the previous questions are hidden, and the user can focus on entering new inputs without any distractions.
+
+![clear function](/assets/images/screenshots/def_clear_fuction.png)
+
+- I encountered a bug where entering an invalid date would still provide a star sign, even though the date was not valid. To fix this issue, I made modifications to the get_star_sign() function.
+     - First, I added a validation check using the is_valid_date() function. This check ensures that the entered date is valid before proceeding with determining the star sign. If the date is not valid, the function returns an "Invalid date" message instead of a star sign.
+     - By incorporating the validation step, I ensured that only valid dates are considered for determining the star sign. This fix prevents the calculator from providing a star sign based on invalid or incorrect dates, improving the accuracy and reliability of the horoscope predictions.
+ 
+ ![valid date](/assets/images/screenshots/valid_date.png)      
 
 ### Validator Testing
 - PEP8
@@ -71,9 +98,10 @@ This project was deployed on Heruko, Code Institute's mock terminal.
 - Deployment steps
      - Cone the respository from Codeinstitute's github page
      - Create a new Heroku app
-     - Ste the buildbacks to Python and NodeJS in that order
+     - Set the buildbacks to Python and NodeJS in that order
      - Click on Deploy
 
 ## Credits
-- Horoscope calculator idea come from this website https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1
-### Content
+- Horoscope calculator idea come from [this website](https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1)
+- inspiration and guidance taken from [this youtube video](https://www.youtube.com/watch?v=8ext9G7xspg)
+
