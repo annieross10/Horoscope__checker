@@ -60,7 +60,8 @@ Whether you're seeking guidance, curious about what the stars have in store for 
 ## Testing
 I have manually tested this project by doing the following:
    - Passed the code through a PEP8 linter and confirmed there are no problems.
-   - Manually given invalid inputs to see what the outcome is. 
+   - Manually given invalid inputs to see what the outcome is.
+   - Manually given valid inputs to see what the outcome is.
 
 
 ### Bugs
@@ -96,7 +97,7 @@ No unfixed bugs
 ## Deployment
 This project was deployed on Heruko, Code Institute's mock terminal.
 - Deployment steps
-     - Cone the respository from Codeinstitute's github page
+     - Cone the respository from github pages.
      - Create a new Heroku app
      - Set the buildbacks to Python and NodeJS in that order
      - Click on Deploy
