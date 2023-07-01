@@ -1,6 +1,6 @@
 # Horoscope Calculator
 Welcome to the Horoscope Calculator! 
-The Horoscope Calculator is a simple Python program that allows users to get their horoscope predictions based on their birthdate and star sign. The program provides daily horoscope readings for each zodiac sign.
+The Horoscope Calculator is a simple Python program that allows users to get their horoscope predictions based on their birthdate and star sign. The program provides horoscope readings for each zodiac sign.
 Whether you're seeking guidance, curious about what the stars have in store for you, or just want to explore the mystical realm of astrology, the Horoscope Calculator has you covered.
 
 [The live link for the website can be found here](https://horoscope-calculator-42ae9e82fc7b.herokuapp.com/)
@@ -22,7 +22,7 @@ Whether you're seeking guidance, curious about what the stars have in store for 
 
 ![Horoscope input birthday and welcome message](/assets/images/screenshots/welcomemessage.png)
 
-- The calculator will then determine your star sign based on the month and the day that you input and will progress into asking whether you would like to know your horoscope.
+- The calculator will then determine your star sign based on the month and the day that you input and will progress into asking whether you would like to know your horoscope or not.
 
 ![calculating the star sign](/assets/images/screenshots/star_sign.png)
       
@@ -34,12 +34,12 @@ Whether you're seeking guidance, curious about what the stars have in store for 
 
 - Motivational Horoscope revealed
     - At the end of the interactive questionnaire, the horoscope calculator reveals your personalized horoscope, adding an exciting touch to the user experience.
-    - Whether you seek encouragement, guidance, or simply enjoy reading about astrology, the personalized horoscope feature adds an extra dimension of engagement to the horoscope calculator\ .
+    - Whether you seek encouragement, guidance, or simply enjoy reading about astrology, the personalized horoscope feature adds an extra dimension of engagement to the horoscope calculator.
  
 ![Horoscope](/assets/images/screenshots/horoscopeprediction.png)
  
-- Option to read another star sign at the end.
-- Does not give you the oppertunity to input a false birthday - this is so you don't get a miscalculated horoscope! 
+- The calculator gives the user the option to read another star sign at the end.
+- It also does not give you the opportunity to input a false birthday or zodiac sign - this is so you don't get a miscalculated horoscope! 
 
 ![invalid month message](/assets/images/screenshots/invalidresponse.png)
 
@@ -102,6 +102,7 @@ This project was deployed on Heruko, Code Institute's mock terminal.
      - Click on Deploy
 
 ## Credits
-- Horoscope calculator idea come from [this website](https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1)
+- Horoscope calculator idea come from [this website](https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1) and [this website](https://hackernoon.com/want-to-learn-python-lets-do-it-with-horoscopes-raq44oo)
 - inspiration and guidance taken from [this youtube video](https://www.youtube.com/watch?v=8ext9G7xspg)
-
+- Python help for horoscope generator came from [this youtube video](https://www.youtube.com/watch?v=Utvt8hKEoJU)
+  
