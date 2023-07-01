@@ -1,5 +1,4 @@
 import os
-import random
 import subprocess
 import textwrap
 
@@ -231,8 +230,8 @@ def get_prediction(day_of_year, horoscope_day):
 # get birthday information
 def get_birthday():
     clear_screen()
-    month_input = input("Please enter the month you were\
-     born (name or number):\n")
+    month_input = input("Please enter the month you were \
+born (name or number):\n")
     month = None
 
     if month_input.isdigit():
