@@ -3,120 +3,181 @@ import random
 import subprocess
 import textwrap
 
-#horoscopes
 HOROSCOPES = {
     'aries': [
-        "Aries, you'll experience a boost of energy and motivation. Embrace this dynamic drive and use it to fuel your ambitions. "
-        "Trust your instincts and take bold action towards your goals. Your natural leadership abilities will shine, "
-        "propelling you towards success. Approach the day with confidence and determination.",
-        "Exciting opportunities await, Aries! Unexpected possibilities will present themselves. Embrace change and step outside "
-        "your comfort zone. Trust your intuition and take calculated risks. Your fearlessness and determination will help you "
-        "overcome any challenges that arise. Stay focused on your objectives and let your adventurous spirit guide you to "
-        "new horizons."
+        "Aries, today is a day of new beginnings and fresh starts. "
+        "Embrace the opportunities that come your way "
+        "with confidence and enthusiasm. Trust your instincts and "
+        "take decisive actions. Your energy and determination will "
+        "help you overcome any challenges. Embrace the day with courage "
+        "and let your inner warrior shine. ",
+        "Exciting opportunities await, Aries! Tomorrow brings new "
+        "possibilities. Embrace change with optimism and boldness. "
+        "Trust your instincts and take calculated risks. Your dynamic "
+        "nature and passion will attract favourable circumstances. "
+        "Embrace challenges with confidence and determination, and your inner "
+        "warrior will guide you to success. "
     ],
     'taurus': [
-        "Taurus, you'll feel a sense of stability and determination. Embrace this grounded energy and focus on your goals. "
-        "Trust your practical instincts as you make decisions. Your patience and persistence will pay off, leading you to success. "
-        "Stay rooted in your values and make steady progress towards your aspirations.",
-        "Exciting opportunities await, Taurus! Unexpected possibilities will come your way. Embrace change with confidence and "
-        "open-mindedness. Trust your instincts and take calculated steps towards new ventures. Your reliability and dedication "
-        "will help you navigate any challenges that arise. Stay true to your goals and let your steady nature guide you to "
-        "fruitful outcomes."
-    ],
-    'cancer': [
-        "Cancer, you'll experience a sense of emotional harmony and intuition. Embrace this nurturing energy and trust your instincts. "
-        "Connect with your emotions and those around you on a deeper level. Your compassion and sensitivity will guide you in making "
-        "supportive decisions. Embrace the day with love and care.",
-        "Exciting opportunities await, Cancer! Unexpected possibilities will come knocking on your door. Embrace change with an "
-        "open heart and receptive mindset. Trust your intuition and follow your gut feelings. Your nurturing nature will help you "
-        "navigate any challenges that arise. Stay true to your dreams and let your emotional intelligence guide you to fulfillment."
+        "Taurus, today is a day of stability and grounding. Focus on "
+        "building a solid foundation for your goals and dreams. Trust "
+        "your practicality and determination. Your patience and persistence "
+        "will help you overcome any challenges. Embrace the day with "
+        "resilience and let your inner builder thrive. ",
+        "Exciting opportunities await, Taurus! Tomorrow brings stability "
+        "and growth. Embrace change with steadiness and determination. "
+        "Trust your practical mindset and stay committed to your goals. Your "
+        "perseverance and hard work will attract favorable circumstances. "
+        "Embrace challenges with resilience and determination, and your "
+        "inner builder will lead you to fulfillment. "
     ],
     'gemini': [
-        "Gemini, you'll experience a surge of intellectual energy and communication skills. Embrace this mental clarity and "
-        "express yourself with confidence. Trust your instincts and engage in meaningful conversations. Your versatility and "
-        "quick thinking will help you navigate any situation. Embrace the day with curiosity and embrace new ideas.",
-        "Exciting opportunities await, Gemini! Unexpected possibilities will come your way. Embrace change with adaptability and "
-        "an open mind. Trust your instincts and follow your curiosity. Your versatility and wit will help you navigate any "
-        "challenges that arise. Stay true to your interests and let your communication skills shine."
+        "Gemini, today is a day of communication and intellectual pursuits. "
+        "Engage in stimulating conversations and seek knowledge. Trust your "
+        "curiosity and adaptability. Your wit and versatility will help you "
+        "overcome any challenges. Embrace the day with openness and let your "
+        "inner communicator shine. ",
+        "Exciting opportunities await, Gemini! Tomorrow brings intellectual "
+        "growth and social connections. Embrace change with curiosity and "
+        "adaptability. Trust your communication skills and seek new knowledge."
+        " Your versatility and quick thinking will attract favorable "
+        "circumstances. Embrace challenges with openness and creativity, "
+        "and your inner communicator will guide you to fulfillment. "
+    ],
+    'cancer': [
+        "Cancer, today is a day of emotional depth and intuition. Connect "
+        "with your emotions and trust your intuition. Pay attention to your "
+        "inner voice. Your sensitivity and nurturing nature will help you "
+        "overcome any challenges. Embrace the day with compassion and let your"
+        " inner nurturer thrive.",
+        "Exciting opportunities await, Cancer! Tomorrow brings emotional "
+        "growth and harmony. Embrace change with intuition and compassion. "
+        "Trust your nurturing instincts and listen to your inner voice. Your "
+        "empathy and sensitivity will attract favorable circumstances. Embrace"
+        " challenges with love and understanding, and your inner nurturer will"
+        " lead you to fulfillment. "
     ],
     'leo': [
-        "Leo, you'll experience a surge of confidence and passion. Embrace this fiery energy and let it fuel your ambitions. "
-        "Trust your instincts and take bold actions towards your goals. Your natural charisma and leadership abilities will shine "
-        "brightly. Seize the day with enthusiasm and let your inner lion roar.",
-        "Exciting opportunities await, Leo! Unexpected possibilities will come your way. Embrace change with courage and optimism. "
-        "Trust your intuition and follow your heart's desires. Your magnetic personality will attract favorable circumstances. "
-        "Embrace challenges with confidence, and your creativity and charisma will guide you towards success. Stay true to your "
-        "passions and let your inner fire light the way."
+        "Leo, today is a day of self-expression and creativity. Let your "
+        "unique personality shine and embrace your creativity. Trust your "
+        "inner fire and passion. Your confidence and leadership will help you "
+        "overcome any challenges. Embrace the day with enthusiasm and let "
+        "your inner performer thrive. ",
+        "Exciting opportunities await, Leo! Tomorrow brings self-expression "
+        "and creativity. Embrace change with confidence and passion. Trust "
+        "your inner fire and let your creativity soar. Your charisma and "
+        "leadership will attract favorable circumstances. Embrace challenges "
+        "with enthusiasm and determination, and your inner performer will "
+        "guide you to success. "
     ],
     'virgo': [
-        "Virgo, you'll feel a sense of practicality and efficiency. Embrace this organized energy and focus on your goals. "
-        "Trust your analytical mind as you make decisions. Your attention to detail and hard work will pay off, leading you to "
-        "success. Stay dedicated and disciplined in your endeavors.",
-        "Exciting opportunities await, Virgo! Unexpected possibilities will present themselves. Embrace change with adaptability "
-        "and precision. Trust your instincts and take calculated steps towards new ventures. Your meticulous nature and "
-        "discerning eye will help you navigate any challenges that arise. Stay true to your goals and let your practicality "
-        "guide you to fruitful outcomes."
+        "Virgo, today is a day of organization and attention to detail. "
+        "Focus on practical matters and pay attention to the finer points. "
+        "Trust your analytical mind and methodical approach. Your diligence "
+        "and efficiency will help you overcome any challenges. Embrace the "
+        "day with precision and let your inner perfectionist thrive. ",
+        "Exciting opportunities await, Virgo! Tomorrow brings organization "
+        "and growth. Embrace change with attention to detail and practicality."
+        " Trust your analytical mind and focus on efficiency. Your methodical "
+        "approach and attention to detail will attract favourable "
+        "circumstances. Embrace challenges with precision and dedication, "
+        "and your inner perfectionist will lead you to fulfillment. "
     ],
     'libra': [
-        "Libra, you'll experience a sense of balance and harmony. Embrace this harmonious energy and seek peace in all areas of your life. "
-        "Trust your intuition as you make decisions. Your diplomatic nature and sense of justice will guide you in resolving conflicts. "
-        "Embrace the day with grace and find equilibrium within yourself.",
-        "Exciting opportunities await, Libra! Unexpected possibilities will present themselves. Embrace change with poise and "
-        "openness. Trust your instincts and seek harmony in all endeavors. Your charm and tact will help you navigate any challenges "
-        "that arise. Stay true to your values and let your balanced nature guide you to rewarding outcomes."
+        "Libra, today is a day of balance and harmony. Seek peace and fairness"
+        " in all your interactions. Trust your sense of justice and diplomacy."
+        " Your charm and ability to compromise will help you overcome any "
+        "challenges. Embrace the day with grace and let your inner diplomat "
+        "shine. ",
+        "Exciting opportunities await, Libra! Tomorrow brings balance and "
+        "harmony. Embrace change with fairness and diplomacy. Trust your sense"
+        " of justice and seek peace in all your interactions. Your charm and "
+        "ability to compromise will attract favorable circumstances. Embrace "
+        "challenges with grace and diplomacy, and your inner diplomat will "
+        "guide you to fulfillment. "
     ],
     'scorpio': [
-        "Scorpio, you'll feel a surge of intensity and passion. Embrace this powerful energy and embrace your transformative nature. "
-        "Trust your instincts and follow your desires. Your determination and resourcefulness will help you overcome any obstacles. "
-        "Seize the day with courage and let your inner strength guide you.",
-        "Exciting opportunities await, Scorpio! Unexpected possibilities will come your way. Embrace change with resilience and "
-        "assertiveness. Trust your instincts and follow your passions. Your magnetic aura will attract favorable circumstances. "
-        "Embrace challenges with confidence, and your perseverance and intuition will lead you to success. Let your inner fire "
-        "ignite your path."
+        "Scorpio, today is a day of transformation and intensity. Embrace your"
+        " inner power and let go of what no longer serves you. Trust your "
+        "instincts and embrace change. Your determination and resilience will "
+        "help you overcome any challenges. Embrace the day with passion and "
+        "let your inner warrior thrive. ",
+        "Exciting opportunities await, Scorpio! Tomorrow brings transformation"
+        " and intensity. Embrace change with determination and resilience. "
+        "Trust your instincts and let go of what no longer serves you. Your "
+        "inner power and intensity will attract favorable circumstances. "
+        "Embrace challenges with passion and determination, and your inner "
+        "warrior will guide you to success. "
     ],
     'sagittarius': [
-        "Sagittarius, you'll feel a sense of adventure and optimism. Embrace this free-spirited energy and explore new horizons. "
-        "Trust your intuition as you embark on new journeys. Your enthusiasm and open-mindedness will guide you in embracing "
-        "opportunities. Seize the day with optimism and let your inner explorer thrive.",
-        "Exciting opportunities await, Sagittarius! Unexpected possibilities will present themselves. Embrace change with "
-        "enthusiasm and an adventurous spirit. Trust your instincts and take bold steps towards new experiences. Your optimism "
-        "and curiosity will help you navigate any challenges that arise. Stay true to your dreams and let your inner fire guide "
-        "you to exciting horizons."
+        "Sagittarius, today is a day of adventure and expansion. Seek new "
+        "experiences and broaden your horizons. Trust your inner wisdom "
+        "and embrace change. Your optimism and enthusiasm will help you "
+        "overcome any challenges. Embrace the day with adventure and let "
+        "your inner explorer thrive. ",
+        "Exciting opportunities await, Sagittarius! Tomorrow brings adventure "
+        "and expansion. Embrace change with optimism and curiosity. Trust "
+        "your inner wisdom and seek new experiences. Your enthusiasm and "
+        "optimism will attract favorable circumstances. Embrace challenges "
+        "with adventure and openness, and your inner explorer will lead you "
+        "to fulfillment. "
     ],
     'capricorn': [
-        "Capricorn, you'll experience a sense of determination and ambition. Embrace this driven energy and focus on your goals. "
-        "Trust your instincts as you make important decisions. Your disciplined nature and practical mindset will lead you to success. "
-        "Stay committed to your path and embrace the day with confidence.",
-        "Exciting opportunities await, Capricorn! Unexpected possibilities will come your way. Embrace change with patience and "
-        "strategic thinking. Trust your instincts and take calculated steps towards your goals. Your hard work and dedication "
-        "will help you navigate any challenges that arise. Stay true to your aspirations and let your ambition guide you to "
-        "achievements."
+        "Capricorn, today is a day of discipline and ambition. Focus on your "
+        "long-term goals and take practical steps towards success. Trust your "
+        "perseverance and determination. Your hard work and responsibility "
+        "will help you overcome any challenges. Embrace the day with "
+        "discipline and let your inner achiever thrive. ",
+        "Exciting opportunities await, Capricorn! Tomorrow brings discipline "
+        "and ambition. Embrace change with perseverance and practicality. "
+        "Trust your long-term goals and take responsible actions. Your "
+        "determination and hard work will attract favorable circumstances. "
+        "Embrace challenges with discipline and focus, and your inner "
+        "achiever will guide you to success. "
     ],
     'aquarius': [
-        "Aquarius, you'll feel a surge of innovative energy and intellectual stimulation. Embrace this creative flow and express "
-        "yourself authentically. Trust your intuition and follow your unique ideas. Your visionary thinking and humanitarian "
-        "nature will guide you in making a positive impact. Embrace the day with inventiveness and let your inner rebel shine.",
-        "Exciting opportunities await, Aquarius! Unexpected possibilities will come your way. Embrace change with adaptability and "
-        "originality. Trust your instincts and take calculated risks. Your progressive mindset and innovative ideas will help you "
-        "navigate any challenges that arise. Stay true to your values and let your intellectual prowess guide you to new frontiers."
+        "Aquarius, today is a day of innovation and humanitarianism. Embrace "
+        "your unique perspective and think outside the box. Trust your "
+        "intuition and embrace change. Your humanitarian efforts and "
+        "intellectual insights will help you overcome any challenges. Embrace "
+        "the day with innovation and let your inner reformer thrive. ",
+        "Exciting opportunities await, Aquarius! Tomorrow brings innovation "
+        "and humanitarianism. Embrace change with intuition and intellectual "
+        "curiosity. Trust your unique perspective and think outside the box. "
+        "Your innovative ideas and humanitarian efforts will attract favorable"
+        " circumstances. Embrace challenges with innovation and compassion, "
+        "and your inner reformer will guide you to fulfillment. "
     ],
     'pisces': [
-        "Pisces, you'll experience a sense of intuition and compassion. Embrace this intuitive energy and trust your inner guidance. "
-        "Connect with your emotions and those around you on a deeper level. Your empathy and imagination will guide you in making "
-        "supportive decisions. Embrace the day with love and kindness.",
-        "Exciting opportunities await, Pisces! Unexpected possibilities will come your way. Embrace change with an open heart and "
-        "receptive mindset. Trust your intuition and follow your dreams. Your artistic nature and spiritual depth will help you "
-        "navigate any challenges that arise. Stay true to your passions and let your intuition lead you to fulfillment."
+        "Pisces, today is a day of imagination and spirituality. Connect "
+        "with your inner self and explore your dreams. Trust your intuition "
+        "and embrace change. Your empathy and sensitivity will help you "
+        "overcome any challenges. Embrace the day with creativity and let "
+        "your inner dreamer thrive. ",
+        "Exciting opportunities await, Pisces! Tomorrow brings imagination "
+        "and spirituality. Embrace change with intuition and empathy. Trust "
+        "your dreams and connect with your inner self. Your creativity and "
+        "sensitivity will attract favorable circumstances. Embrace "
+        "challenges with imagination and spirituality, and your inner "
+        "dreamer will lead you to fulfillment. "
     ]
 }
 
-#days of the month
+# days of the month
 DAYS_OF_MONTHS = {
     1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
     7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
 }
 
-#star signs
+
+# valid date
+def is_valid_date(month, day):
+    if month in DAYS_OF_MONTHS and day <= DAYS_OF_MONTHS[month]:
+        return True
+    return False
+
+
+# star signs
 def get_star_sign(month, day):
     star_signs = [
         ('Capricorn', (1, 1), (1, 19)),
@@ -134,6 +195,9 @@ def get_star_sign(month, day):
         ('Capricorn', (12, 22), (12, 31))
     ]
 
+    if not is_valid_date(month, day):
+        return "Invalid date"
+
     date = (month, day)
 
     for sign, (start_month, start_day), (end_month, end_day) in star_signs:
@@ -142,15 +206,18 @@ def get_star_sign(month, day):
 
     return "Invalid star sign"
 
-#clear screen from previous question
+
+# clear screen from previous question
 def clear_screen():
     subprocess.run(["clear" if os.name != "nt" else "cls"], shell=True)
+
 
 def get_name():
     name = input("Please enter your name:\n")
     return name
 
-#predictions for either today or tomorrow
+
+# predictions for either today or tomorrow
 def get_prediction(day_of_year, horoscope_day):
     if day_of_year in HOROSCOPES:
         horoscopes = HOROSCOPES[day_of_year]
@@ -160,10 +227,12 @@ def get_prediction(day_of_year, horoscope_day):
             return horoscopes[1]
     return "No prediction available for the given day."
 
-#get birthday information
+
+# get birthday information
 def get_birthday():
     clear_screen()
-    month_input = input("Please enter the month you were born (name or number):\n")
+    month_input = input("Please enter the month you were\
+     born (name or number):\n")
     month = None
 
     if month_input.isdigit():
@@ -182,28 +251,33 @@ def get_birthday():
     if month is None or month < 1 or month > 12:
         print("Invalid month entered. Please try again.")
         return get_birthday()
-    
-    clear_screen()
-    
     while True:
         day_input = input("Now enter the day:\n")
         if day_input.isdigit():
             day = int(day_input)
-            break
+            if is_valid_date(month, day):
+                break
+            else:
+                print("Invalid day entered. Please try again.")
         else:
             try:
                 day = int(day_input[:-2])
-                break
+                if is_valid_date(month, day):
+                    break
+                else:
+                    print("Invalid day entered. Please try again.")
             except ValueError:
                 print("Invalid day entered. Please try again.")
 
     return month, day
 
+
 def convert_to_day_of_year(month, day):
     days_in_month = DAYS_OF_MONTHS[month]
     return sum(DAYS_OF_MONTHS[i] for i in range(1, month)) + day
 
-#calculate star sign
+
+# calculate star sign
 if __name__ == "__main__":
     while True:
         name = get_name()
@@ -221,14 +295,18 @@ if __name__ == "__main__":
 
             if response.lower() == 'yes':
                 clear_screen()
-                horoscope_day = input("Which day would you like to know your horoscope? (today/tomorrow):\n")
+                horoscope_day = input("Which day would you like to know your "
+                                      "horoscope? (today/tomorrow):\n")
                 print()
                 clear_screen()
 
-                if horoscope_day.lower() == 'today' or horoscope_day.lower() == 'tomorrow':
-                    prediction = get_prediction(star_sign.lower(), horoscope_day.lower())
-                    wrapped_prediction = textwrap.fill(prediction, width=80) 
-                    print(f"{name}... Your horoscope prediction for {horoscope_day} is...\n")
+                if horoscope_day.lower() == 'today' or \
+                   horoscope_day.lower() == 'tomorrow':
+                    prediction = get_prediction(star_sign.lower(),
+                                                horoscope_day.lower())
+                    wrapped_prediction = textwrap.fill(prediction, width=80)
+                    print(f"{name}... Your horoscope prediction for \
+{horoscope_day} is...\n")
                     print(wrapped_prediction)
                 else:
                     print("Invalid input. Please try again.")
@@ -236,10 +314,10 @@ if __name__ == "__main__":
                 print("Okay, maybe next time!")
 
             # Ask user if they want to start again
-            repeat_response = input("\nWould you like another horoscope read? (yes/no):\n")
+            repeat_response = input("\nWould you like another horoscope read? "
+                                    "(yes/no):\n")
 
             if repeat_response.lower() != 'yes':
                 break
             clear_screen()
-            
         print("Thank you for using the horoscope service. Goodbye!")
